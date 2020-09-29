@@ -5,10 +5,10 @@ import {
 import todoAtomState from "./Recoil/atom";
 
 const Input = () => {
-  const [todo, setTodo] = useRecoilState(todoAtomState);
+  const [, setTodo] = useRecoilState<string>(todoAtomState);
   return (
     <>
-      <input></input>
+      <input onChange={(val) => setTodo(val.target.value)}></input>
     </>
   )
 }

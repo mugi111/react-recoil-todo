@@ -1,9 +1,8 @@
-import { ITodo } from '../Types';
 import { atom } from 'recoil';
 
-const todoAtomState = atom<ITodo[]>({
+const todoAtomState = atom<string>({
     key: "todoAtom",
-    default: [],
+    default: "",
   });
 
 export default todoAtomState;
