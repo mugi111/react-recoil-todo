@@ -4,7 +4,7 @@ import {
 } from "recoil";
 import todoAtomState from "./Recoil/atom";
 
-const Input = () => {
+const InputForm = () => {
   const [, setTodo] = useRecoilState<string>(todoAtomState);
   return (
     <>
