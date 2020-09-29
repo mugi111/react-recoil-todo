@@ -1,11 +1,13 @@
 import React from 'react';
-import Input from "./Input";
+import InputForm from "./InputForm";
+import TodoList from "./TodoList";
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      <Input />
+      <InputForm />
+      <TodoList />
     </div>
   );
 }
