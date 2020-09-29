@@ -13,4 +13,4 @@ const InputForm = () => {
   )
 }
 
-export default Input;
+export default InputForm;
