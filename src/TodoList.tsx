@@ -8,7 +8,7 @@ const TodoList = () => {
   const [todo, ] = useRecoilState<string>(todoAtomState);
   return (
     <>
-      <span>{todo}</span>
+      <span style={{ display: "block" }}>{todo}</span>
     </>
   )
 }
