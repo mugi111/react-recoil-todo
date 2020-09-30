@@ -6,11 +6,7 @@ const TodoList = () => {
   const todo = useRecoilValue<string[]>(todoAtomState);
   return (
     <ul>
-      {todo.map(val => {
-        return (
-          <li>{val}</li>
-        )
-      })}
+      {todo.map(val => <li>{val}</li> )}
     </ul>
   )
 }
