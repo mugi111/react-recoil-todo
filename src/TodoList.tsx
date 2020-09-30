@@ -1,13 +1,29 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import todoAtomState from "./Recoil/atom";
 import { ITodo } from "./Types";
 
 const TodoList = () => {
-  const todo = useRecoilValue<ITodo[]>(todoAtomState);
+  const todo: ITodo[] = useRecoilValue<ITodo[]>(todoAtomState);
+  const setTodo = useSetRecoilState<ITodo[]>(todoAtomState);
+
+  const statusChanged = (targetVal: ITodo) => {
+    const index = todo.findIndex((item: ITodo) => item === targetVal)
+    const newTodo: ITodo = { ...todo[index], finished: !targetVal.finished };
+    
+    setTodo([...todo.slice(0, index), newTodo, ...todo.slice(index + 1)]);
+  }
+
   return (
-    <ul>
-      {todo.map(val => <li>{val.name}</li> )}
+    <ul style={{listStyle: "none"}}>
+      {todo.map(val => {
+        return (
+          <li>
+            <input type="checkbox" onChange={()=>statusChanged(val)}></input>
+            {val.name}
+          </li> 
+        )
+      })}
     </ul>
   )
 }
