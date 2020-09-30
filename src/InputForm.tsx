@@ -1,14 +1,14 @@
-import React from "react";
-import {
-  useRecoilState,
-} from "recoil";
+import React, { useState } from "react";
+import { useSetRecoilState } from "recoil";
 import todoAtomState from "./Recoil/atom";
 
 const InputForm = () => {
-  const [, setTodo] = useRecoilState<string>(todoAtomState);
+  const [val, setVal] = useState<string>("");
+  const setTodo = useSetRecoilState<string[]>(todoAtomState);
   return (
     <>
-      <input onChange={(val) => setTodo(val.target.value)}></input>
+      <input onChange={(val) => setVal(val.target.value)}></input>
+      <button onClick={() => setTodo((oldState) => [...oldState, val])}>Add</button>
     </>
   )
 }
