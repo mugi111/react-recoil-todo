@@ -20,7 +20,7 @@ const TodoList = () => {
         return (
           <li>
             <input type="checkbox" onChange={()=>statusChanged(val)}></input>
-            {val.name}
+            <span style={val.finished?{textDecoration: "line-through"}:{textDecoration: "none"}}>{val.name}</span>
           </li> 
         )
       })}
