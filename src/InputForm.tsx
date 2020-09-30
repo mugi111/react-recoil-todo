@@ -9,9 +9,18 @@ const InputForm = () => {
   return (
     <>
       <input onChange={(val) => setState(val.target.value)}></input>
-      <button onClick={() => setTodo((oldState) => [...oldState, {name:state, finished:false}])}>Add</button>
+      <button
+        onClick={() =>
+          setTodo((oldState: ITodo[]) => [
+            ...oldState,
+            { name: state, finished: false },
+          ])
+        }
+      >
+        Add
+      </button>
     </>
-  )
-}
+  );
+};
 
 export default InputForm;
